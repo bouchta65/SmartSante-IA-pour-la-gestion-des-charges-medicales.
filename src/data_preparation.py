@@ -1,5 +1,6 @@
 import pandas as pd
-
+import matplotlib.pyplot as mpl
+import seaborn as sbn
 path = r"data\assurance-maladie-68d92978e362f464596651.csv"
 content = pd.read_csv(path)
 
@@ -36,3 +37,8 @@ print(content[['region_northeast','region_northwest','region_southeast','region_
 
 print(content.isnull().sum())
 print(content.isnull().any())
+
+print(content.duplicated().sum())
+
+content = content.drop_duplicates()
+print(content.duplicated().sum())
