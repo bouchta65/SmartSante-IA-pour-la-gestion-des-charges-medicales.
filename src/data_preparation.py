@@ -28,7 +28,5 @@ print(content.info())
 print(content.head())
 print(content.tail())
 
-meanAge = content['age'].mean()
-print(round(meanAge,2))
 
 
