@@ -1,0 +1,1 @@
+SmartSanté → IA pour la gestion des charges médicales.
