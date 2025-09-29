@@ -28,5 +28,11 @@ print(content.info())
 print(content.head())
 print(content.tail())
 
+print(content[['age', 'bmi', 'children', 'charges']].describe().round(2))
 
+print(content['sex'].value_counts())
+print(content['smoker'].value_counts())
+print(content[['region_northeast','region_northwest','region_southeast','region_southwest']].sum())
 
+print(content.isnull().sum())
+print(content.isnull().any())
