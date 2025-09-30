@@ -38,7 +38,37 @@ print(content[['region_northeast','region_northwest','region_southeast','region_
 print(content.isnull().sum())
 print(content.isnull().any())
 
+print(content.duplicated().sum)
 print(content.duplicated().sum())
 
 content = content.drop_duplicates()
-print(content.duplicated().sum())
+
+mpl.figure(figsize=(6,4))
+
+mpl.subplot(2,2,1)
+sbn.histplot(content['age'],kde=True)
+mpl.title("Distribution de l'âge")
+
+mpl.subplot(2,2,2)
+sbn.histplot(content['children'],kde=True)
+mpl.title("Distribution du nombre d'enfants")
+
+mpl.subplot(2,2,3)
+sbn.histplot(content['charges'],kde=True)
+mpl.title("Distribution des charges")
+
+mpl.subplot(2,2,4)
+sbn.histplot(content['bmi'],kde=True)
+mpl.title("Distribution du BMI")
+
+mpl.tight_layout()
+mpl.show()
+
+sbn.pairplot(content[['age', 'bmi', 'children', 'charges']])
+mpl.title("Distribution du BMI")
+mpl.show()
+
+sbn.heatmap(content[['age', 'bmi', 'children', 'charges']].corr(),annot=True, cmap="coolwarm")
+mpl.title("Distribution du BMI")
+mpl.show()
+
